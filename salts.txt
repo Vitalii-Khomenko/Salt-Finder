@@ -1,0 +1,7 @@
+WrongSalt
+BadSalt
+SuperSalt
+AnotherSalt
+admin
+user
+root
