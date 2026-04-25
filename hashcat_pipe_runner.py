@@ -103,6 +103,14 @@ def main():
         print("Error: Hash file is empty")
         sys.exit(1)
 
+    # Simple validation for known SHA256 modes
+    if args.mode in ["1410", "1420"]:
+        if len(target_hash) != 64:
+             print(f"Warning: Hash length is {len(target_hash)}. Expected 64 characters for SHA256 modes.")
+        import re
+        if not re.fullmatch(r'[a-fA-F0-9]+', target_hash):
+             print("Warning: Hash contains non-hexadecimal characters. Proceed with caution.")
+    
     print(f"[*] Target Hash: {target_hash[:15]}...")
     
     # Read Salts
